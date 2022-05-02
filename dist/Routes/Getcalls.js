@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const AuthController_1 = require("../Controllers/AuthController");
+const BuySellController_1 = require("../Controllers/BuySellController");
+const getRouter = (0, express_1.Router)();
+getRouter.get("/favourite-cars/:email", AuthController_1.favouriteCars);
+getRouter.get("/get-favorite-cars/:email", BuySellController_1.getFavouriteCars);
+getRouter.get("/cart/:email", AuthController_1.getCart);
+getRouter.get("/get-cart-cars/:email", BuySellController_1.getCartCars);
+getRouter.get("/buy-new-car", BuySellController_1.buyNewCar);
+getRouter.get("/buy-old-car", BuySellController_1.buyOldCar);
+getRouter.get("/get-buy-list/:_id", BuySellController_1.getBuyList);
+getRouter.get("/get-sell-list/:_id", BuySellController_1.getSellList);
+getRouter.get("/get-site-data", BuySellController_1.getSiteData);
+exports.default = getRouter;

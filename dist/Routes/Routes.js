@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const AuthController_1 = require("../Controllers/AuthController");
+const BuySellController_1 = require("../Controllers/BuySellController");
+const Getcalls_1 = __importDefault(require("./Getcalls"));
+const router = (0, express_1.Router)();
+router.post("/login", AuthController_1.login);
+router.post("/register", AuthController_1.register);
+router.post("/sell-car", BuySellController_1.sellCar);
+router.post("/add-to-favourite", AuthController_1.addToFavourite);
+router.post("/add-to-cart", AuthController_1.addToCart);
+router.post("/add-to-buy", AuthController_1.addToBuy);
+router.patch("/update-car/:_id", BuySellController_1.updateCarData);
+router.post("/feedback", BuySellController_1.feedback);
+router.use(Getcalls_1.default);
+exports.default = router;
